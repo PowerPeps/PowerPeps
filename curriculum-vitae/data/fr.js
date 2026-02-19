@@ -2,6 +2,7 @@ window.cvLangData = {
     lang: 'fr',
 
     labels: {
+        sectionAbout:      'À propos',
         sectionFormation:  'Formation',
         sectionExp:        'Expériences',
         sectionProjects:   'Projets',
@@ -11,7 +12,10 @@ window.cvLangData = {
         viewOnGithub:      'Voir sur GitHub',
         learnMore:         'En savoir plus',
         location:          'Corse',
+        ageSuffix:         'ans',
     },
+
+    bio: 'Étudiant en Licence Sciences pour l\'Ingénieur, je baigne dans l\'informatique et l\'électronique depuis l\'âge où la plupart des gens jouent aux Legos. Autodidacte avant tout, je construis, je démonte, je comprends ; qu\'il s\'agisse d\'écrire un compilateur, de câbler une installation électrique ou de concevoir un système embarqué. Convaincu que le savoir doit circuler librement, je travaille en open-source autant que possible et cherche des environnements exigeants où mettre les mains dans le cambouis ; au sens propre comme au figuré.',
 
     formation: [
         {
@@ -45,7 +49,7 @@ window.cvLangData = {
             date:     '2019',
             title:    'Stage Fablab — Arize Leze Coworking',
             badge:    'stage',
-            badgeCls: 'bg-gh-green/15 text-gh-green border border-gh-green/25',
+            badgeCls: 'bg-gh-cyan/15 text-gh-cyan border border-gh-cyan/25',
             desc:     'Stage à l\'hôtel d\'entreprises et Fablab. Formation et prise en main des outils de fabrication numérique : fraiseuse CNC, imprimante 3D (FDM), découpeuse vinyle et découpeur/graveur laser. Apprentissage des logiciels de CAO associés et des workflows de fabrication.',
             tags:     [{t:'CAO',c:'border-gh-border text-gh-muted'}],
             url:      'https://www.facebook.com/fablabcoworking/',
@@ -65,7 +69,7 @@ window.cvLangData = {
             date:     '2017',
             title:    'Stage tourneur sur bois',
             badge:    'stage',
-            badgeCls: 'bg-gh-green/15 text-gh-green border border-gh-green/25',
+            badgeCls: 'bg-gh-cyan/15 text-gh-cyan border border-gh-cyan/25',
             desc:     'Apprentissage du tournage sur bois. Technique sur mandrin et entre-pointes.',
             tags:     [],
             url:      'https://annuaire-entreprises.data.gouv.fr/entreprise/thierry-renard-440836344',
@@ -93,7 +97,7 @@ window.cvLangData = {
             date:     '2011 — 2017',
             title:    'Régisseur lumière & son',
             badge:    'bénévole',
-            badgeCls: 'bg-gh-pink/15 text-gh-pink border border-gh-pink/25',
+            badgeCls: 'bg-gh-green/15 text-gh-green border border-gh-green/25',
             desc:     'Régie son et lumière pour le groupe "Les Tzigales", ainsi que pour les différents projets musicaux et bœufs. Notamment au festival Terre-De-Couleurs.',
             tags:     [],
             url:      'https://www.terredecouleurs.asso.fr/site/',
@@ -140,5 +144,15 @@ window.cvLangData = {
         },
     ],
 
-    passions: ['Équitation','Moto','Jeux de Rôles','Snowboard','Ferronnerie','Menuiserie / Charpente','Électronique','Informatique','Open-Source'],
+    passions: [
+        {icon: 'chess-bishop', label: 'Échecs'},
+        {icon: 'motorbike',    label: 'Moto'},
+        {icon: 'dice-6',       label: 'Jeux de Rôles'},
+        {icon: 'snowflake',    label: 'Snowboard'},
+        {icon: 'anvil',        label: 'Ferronnerie'},
+        {icon: 'hammer',       label: 'Menuiserie / Charpente'},
+        {icon: 'zap',          label: 'Électronique'},
+        {icon: 'binary',       label: 'Informatique'},
+        {icon: 'waypoints',    label: 'Open-Source'},
+    ],
 };

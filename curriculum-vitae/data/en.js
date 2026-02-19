@@ -2,6 +2,7 @@ window.cvLangData = {
     lang: 'en',
 
     labels: {
+        sectionAbout:      'About',
         sectionFormation:  'Education',
         sectionExp:        'Experience',
         sectionProjects:   'Projects',
@@ -11,7 +12,10 @@ window.cvLangData = {
         viewOnGithub:      'View on GitHub',
         learnMore:         'Learn more',
         location:          'Corsica',
+        ageSuffix:         'y/o',
     },
+
+    bio: 'Studying for a Bachelor\'s in Engineering Sciences, I\'ve been immersed in computers and electronics since the age when most people play with Legos. Self-taught above all, I build, I take apart, I understand ; whether it\'s writing a compiler, wiring an electrical installation, or designing an embedded system. Convinced that knowledge should flow freely, I work open-source as much as possible and seek demanding environments where I can get my hands dirty ; in the literal sense as much as the figurative.',
 
     formation: [
         {
@@ -45,7 +49,7 @@ window.cvLangData = {
             date:     '2019',
             title:    'Fablab Internship — Arize Leze Coworking',
             badge:    'internship',
-            badgeCls: 'bg-gh-green/15 text-gh-green border border-gh-green/25',
+            badgeCls: 'bg-gh-cyan/15 text-gh-cyan border border-gh-cyan/25',
             desc:     'Internship at a business hotel and Fablab. Training and hands-on use of digital fabrication tools: CNC router, FDM 3D printer, vinyl cutter, and laser cutter/engraver. Learned associated CAD software and manufacturing workflows.',
             tags:     [{t:'CAD',c:'border-gh-border text-gh-muted'}],
             url:      'https://www.facebook.com/fablabcoworking/',
@@ -65,7 +69,7 @@ window.cvLangData = {
             date:     '2017',
             title:    'Wood Turning Internship',
             badge:    'internship',
-            badgeCls: 'bg-gh-green/15 text-gh-green border border-gh-green/25',
+            badgeCls: 'bg-gh-cyan/15 text-gh-cyan border border-gh-cyan/25',
             desc:     'Introduction to wood turning. Chuck and between-centres techniques.',
             tags:     [],
             url:      'https://annuaire-entreprises.data.gouv.fr/entreprise/thierry-renard-440836344',
@@ -93,7 +97,7 @@ window.cvLangData = {
             date:     '2011 — 2017',
             title:    'Lighting & Sound Engineer',
             badge:    'volunteer',
-            badgeCls: 'bg-gh-pink/15 text-gh-pink border border-gh-pink/25',
+            badgeCls: 'bg-gh-green/15 text-gh-green border border-gh-green/25',
             desc:     'Sound and lighting engineering for the band "Les Tzigales" and various musical projects and jam sessions, including the Terre-De-Couleurs festival.',
             tags:     [],
             url:      'https://www.terredecouleurs.asso.fr/site/',
@@ -140,5 +144,15 @@ window.cvLangData = {
         },
     ],
 
-    passions: ['Horse Riding','Motorcycling','Tabletop RPGs','Snowboard','Blacksmithing','Woodworking / Carpentry','Electronics','Computer Science','Open-Source'],
+    passions: [
+        {icon: 'chess-bishop', label: 'Chess'},
+        {icon: 'motorbike',    label: 'Motorbike'},
+        {icon: 'dice-6',       label: 'Tabletop RPGs'},
+        {icon: 'snowflake',    label: 'Snowboard'},
+        {icon: 'anvil',        label: 'Blacksmithing'},
+        {icon: 'hammer',       label: 'Woodworking / Carpentry'},
+        {icon: 'zap',          label: 'Electronics'},
+        {icon: 'binary',       label: 'Computer Science'},
+        {icon: 'waypoints',    label: 'Open-Source'},
+    ],
 };

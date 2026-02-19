@@ -4,26 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Papillon Virton</title>
-
-    <!--
-        Language detection & data loading.
-        This script runs SYNCHRONOUSLY (no defer/async) so that window.cvLangData
-        is set before Alpine.js initialises.
-    -->
+    <link rel="icon" href="https://avatars.githubusercontent.com/PowerPeps" type="image/png">
     <script>
         (function () {
             var params  = new URLSearchParams(window.location.search);
             var stored  = localStorage.getItem('cv-lang');
-            var browser = (navigator.language || '').toLowerCase().startsWith('fr') ? 'fr' : 'en';
+            var nav     = (navigator.language || '').toLowerCase();
+            var browser = nav.startsWith('fr') ? 'fr' : nav.startsWith('ru') ? 'ru' : 'en';
             var lang    = params.get('lang') || stored || browser;
-            if (lang !== 'fr' && lang !== 'en') lang = 'fr';
+            if (lang !== 'fr' && lang !== 'en' && lang !== 'ru') lang = 'en';
             localStorage.setItem('cv-lang', lang);
             document.documentElement.lang = lang;
-            document.write('<script src="data\/' + lang + '.js"><\/script>');
+            window.cvInitLang = lang;
         })();
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -88,11 +85,13 @@
         }
 
         .lang-btn { transition: color 0.15s, border-color 0.15s; }
+
+        .tech-svg svg { width: 100%; height: 100%; fill: currentColor; display: block; }
     </style>
 </head>
 <body class="font-sans text-gh-text antialiased">
 
-    <div class="max-w-2xl mx-auto px-5 py-12 md:py-20">
+    <div class="max-w-2xl lg:max-w-4xl mx-auto px-5 py-12 md:py-20">
 
         <!-- HEADER -->
         <header class="mb-8 anim" id="h1">
@@ -111,6 +110,11 @@
                             class="lang-btn font-mono text-[10px] px-2 py-0.5 rounded border">
                         EN
                     </button>
+                    <button @click="switchLang('ru')"
+                            :class="lang === 'ru' ? 'text-gh-accent border-gh-accent/50' : 'text-gh-muted border-gh-border hover:text-gh-text'"
+                            class="lang-btn font-mono text-[10px] px-2 py-0.5 rounded border">
+                        RU
+                    </button>
                 </div>
             </div>
 
@@ -118,9 +122,20 @@
             <div class="flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs text-gh-muted">
                 <a href="mailto:papillonvirton.pro@gmail.com" class="hover:text-gh-accent transition-colors">papillonvirton.pro@gmail.com</a>
                 <span x-text="labels.location"></span>
-                <span x-text="age + ' ans'"></span>
+                <span x-text="age + ' ' + (labels.ageSuffix || 'ans')"></span>
             </div>
         </header>
+
+        <div class="lg:grid lg:grid-cols-2 lg:gap-x-10">
+
+        <!-- ABOUT / BIO -->
+        <section class="mb-8 anim" id="s1">
+            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-gh-muted mb-3" x-text="labels.sectionAbout"></h2>
+            <p class="text-sm text-gh-muted leading-relaxed" x-text="bio"></p>
+        </section>
+
+        <!-- FORMATION + TECHNOLOGIES (même colonne en grand écran) -->
+        <div>
 
         <!-- FORMATION / EDUCATION -->
         <section class="mb-8 anim" id="s0">
@@ -130,10 +145,10 @@
                     <div class="flex flex-col sm:flex-row sm:gap-4 sm:items-start">
                         <span class="font-mono text-[11px] text-gh-muted sm:w-24 sm:shrink-0 sm:pt-0.5 mb-1 sm:mb-0" x-text="f.date"></span>
                         <div class="flex-1">
-                            <div class="flex items-center gap-2 flex-wrap">
-                                <p class="font-medium text-sm" x-text="f.title"></p>
+                            <div class="flex items-center gap-2">
+                                <p class="font-medium text-sm flex-1" x-text="f.title"></p>
                                 <span x-show="f.badge"
-                                      class="font-mono text-[10px] px-1.5 py-px rounded-full"
+                                      class="font-mono text-[10px] px-1.5 py-px rounded-full shrink-0"
                                       :class="f.badgeCls"
                                       x-text="f.badge"></span>
                             </div>
@@ -143,6 +158,21 @@
                 </template>
             </div>
         </section>
+
+        <!-- TECHNOLOGIES -->
+        <section class="mb-8 anim" id="st">
+            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-gh-muted mb-3">Technologies</h2>
+            <div class="grid grid-flow-col auto-cols-fr gap-3">
+                <template x-for="tech in technologies" :key="tech.name">
+                    <span class="tech-svg aspect-square"
+                          :title="tech.name"
+                          :style="'color: ' + tech.color"
+                          x-html="tech.svg"></span>
+                </template>
+            </div>
+        </section>
+
+        </div><!-- /formation+technologies -->
 
         <!-- EXPERIENCE -->
         <section class="mb-8 anim" id="s2">
@@ -155,13 +185,11 @@
                         <div class="flex flex-col sm:flex-row sm:items-start sm:gap-3.5">
                             <span class="font-mono text-[11px] text-gh-muted sm:w-24 sm:shrink-0 sm:pt-0.5 mb-1.5 sm:mb-0" x-text="e.date"></span>
                             <div class="flex-1 min-w-0">
-                                <div class="flex items-center justify-between gap-2">
-                                    <div class="flex items-center gap-2 flex-wrap min-w-0">
-                                        <p class="font-medium text-sm truncate" x-text="e.title"></p>
-                                        <span class="font-mono text-[10px] px-1.5 py-px rounded-full shrink-0"
-                                              :class="e.badgeCls"
-                                              x-text="e.badge"></span>
-                                    </div>
+                                <div class="flex items-center gap-2">
+                                    <p class="font-medium text-sm flex-1" x-text="e.title"></p>
+                                    <span class="font-mono text-[10px] px-1.5 py-px rounded-full shrink-0"
+                                          :class="e.badgeCls"
+                                          x-text="e.badge"></span>
                                     <svg class="w-3.5 h-3.5 text-gh-muted shrink-0 transition-transform duration-200"
                                          :class="open === i && 'rotate-180'"
                                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -242,12 +270,17 @@
             </div>
         </section>
 
+        </div><!-- /grid -->
+
         <!-- PASSIONS / INTERESTS -->
         <section class="mb-8 anim" id="s4">
             <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-gh-muted mb-3" x-text="labels.sectionPassions"></h2>
             <div class="flex flex-wrap gap-1.5">
-                <template x-for="p in passions" :key="p">
-                    <span class="px-2 py-0.5 rounded-md text-xs border border-gh-border text-gh-muted" x-text="p"></span>
+                <template x-for="p in passions" :key="p.label">
+                    <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs border border-gh-border text-gh-muted">
+                        <i :data-lucide="p.icon"></i>
+                        <span x-text="p.label"></span>
+                    </span>
                 </template>
             </div>
         </section>
@@ -263,27 +296,44 @@
                 open:      null,
                 projOpen:  null,
                 age:       0,
-                lang:      'fr',
+                lang:      window.cvInitLang || 'en',
                 labels:    {},
-                formation: [],
-                exps:      [],
-                projects:  [],
-                passions:  [],
+                bio:       '',
+                formation:    [],
+                exps:         [],
+                projects:     [],
+                passions:     [],
+                technologies: [],
 
-                init() {
-                    // Merge data loaded by the synchronous <script> tag above
-                    const d = window.cvLangData || {};
+                async init() {
+                    const load = src => new Promise((resolve, reject) => {
+                        const s = document.createElement('script');
+                        s.src = src; s.onload = resolve; s.onerror = reject;
+                        document.head.appendChild(s);
+                    });
+                    await Promise.all([
+                        load('data/statics.js'),
+                        load('data/' + (window.cvInitLang || 'en') + '.js'),
+                    ]);
+                    const d  = window.cvLangData   || {};
+                    const st = window.cvStaticData || {};
                     this.lang      = d.lang      || 'fr';
                     this.labels    = d.labels    || {};
+                    this.bio       = d.bio       || '';
                     this.formation = d.formation || [];
                     this.exps      = d.exps      || [];
                     this.projects  = d.projects  || [];
-                    this.passions  = d.passions  || [];
+                    this.passions      = d.passions         || [];
+                    this.technologies  = st.technologies   || [];
 
                     this.age = new Date(Date.now() - new Date(2003, 3, 22)).getUTCFullYear() - 1970;
 
-                    // Animate sections once Alpine has rendered the DOM
-                    this.$nextTick(() => this._animate());
+                    this.$nextTick(() => {
+                        if (typeof lucide !== 'undefined') {
+                            lucide.createIcons({ attrs: { width: '14', height: '14', 'stroke-width': '1.75', class: 'shrink-0 inline-block' } });
+                        }
+                        this._animate();
+                    });
                 },
 
                 switchLang(newLang) {
@@ -297,12 +347,14 @@
                 _animate() {
                     const tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 0.5 } });
                     tl.to('#h1', { opacity: 1, y: 0 }, 0.10)
-                      .to('#s0', { opacity: 1, y: 0 }, 0.18)
-                      .to('#s2', { opacity: 1, y: 0 }, 0.26)
-                      .to('#s3', { opacity: 1, y: 0 }, 0.34)
-                      .to('#s4', { opacity: 1, y: 0 }, 0.42)
-                      .to('#s5', { opacity: 1, y: 0 }, 0.48)
-                      .to('#s6', { opacity: 1, y: 0 }, 0.52);
+                      .to('#s1', { opacity: 1, y: 0 }, 0.18)
+                      .to('#s0', { opacity: 1, y: 0 }, 0.26)
+                      .to('#st', { opacity: 1, y: 0 }, 0.32)
+                      .to('#s2', { opacity: 1, y: 0 }, 0.38)
+                      .to('#s3', { opacity: 1, y: 0 }, 0.46)
+                      .to('#s4', { opacity: 1, y: 0 }, 0.54)
+                      .to('#s5', { opacity: 1, y: 0 }, 0.60)
+                      .to('#s6', { opacity: 1, y: 0 }, 0.64);
                 },
             };
         }
