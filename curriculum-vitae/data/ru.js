@@ -134,6 +134,15 @@ window.cvLangData = {
             url:      null,
         },
         {
+            name:     'Alea Jacta Est',
+            badge:    'в разработке',
+            short:    'Карточная игра — Таро Марсельского × Balatro',
+            badgeCls: 'bg-gh-orange/15 text-gh-orange border border-gh-orange/25',
+            desc:     'Карточная игра на основе Марсельского таро, разработанная на MonoGame в рамках университетского курсового проекта.',
+            tags:     [{t:'C#',c:'border-gh-purple/30 text-gh-purple'},{t:'MonoGame',c:'border-gh-border text-gh-muted'},{t:'Карточная игра',c:'border-gh-border text-gh-muted'}],
+            url:      'https://github.com/Rocketsoftwar3/Alea-Jacta-Est',
+        },
+        {
             name:     'Thallium',
             badge:    'ИИ / NLP',
             short:    'Discord-бот на основе Transformer и LLM',

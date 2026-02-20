@@ -134,6 +134,15 @@ window.cvLangData = {
             url:      null,
         },
         {
+            name:     'Alea Jacta Est',
+            badge:    'en dev',
+            short:    'Jeu de cartes — Tarot de Marseille × Balatro',
+            badgeCls: 'bg-gh-orange/15 text-gh-orange border border-gh-orange/25',
+            desc:     'Jeu de cartes basé sur le tarot de Marseille, développé sous MonoGame dans le cadre d\'un projet universitaire.',
+            tags:     [{t:'C#',c:'border-gh-purple/30 text-gh-purple'},{t:'MonoGame',c:'border-gh-border text-gh-muted'},{t:'Jeu de cartes',c:'border-gh-border text-gh-muted'}],
+            url:      'https://github.com/Rocketsoftwar3/Alea-Jacta-Est',
+        },
+        {
             name:     'Thallium',
             badge:    'IA / NLP',
             short:    'Bot Discord basé sur Transformers et LLM',
