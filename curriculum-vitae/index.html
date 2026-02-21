@@ -35,7 +35,6 @@
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        gh: {
                             canvas:  '#0d1117',
                             surface: '#161b22',
                             border:  '#30363d',
@@ -48,7 +47,6 @@
                             purple:  '#bc8cff',
                             pink:    '#f778ba',
                             cyan:    '#39d2c0',
-                        }
                     }
                 }
             }
@@ -73,12 +71,12 @@
         }
         .tech-badge:active { transform: scale(0.95); }
 
-        .gh-cta {
+        .cta {
             background: linear-gradient(135deg, #161b22 0%, #1c2333 100%);
             border: 1px solid #30363d;
             transition: all 0.3s ease;
         }
-        .gh-cta:hover {
+        .cta:hover {
             border-color: #58a6ff60;
             box-shadow: 0 4px 24px rgba(88,166,255,0.08);
             transform: translateY(-1px);
@@ -98,38 +96,36 @@
         .scroll-hint-arrow { animation: scroll-bounce 1.2s ease-in-out infinite; }
     </style>
 </head>
-<body class="font-sans text-gh-text antialiased">
+<body class="font-sans text-text antialiased">
 
     <div class="max-w-2xl lg:max-w-4xl mx-auto px-5 py-12 md:py-20">
 
-        <!-- HEADER -->
         <header class="mb-8 anim" id="h1">
             <div class="flex items-start justify-between gap-4 mb-2">
                 <h1 class="text-3xl md:text-4xl font-bold tracking-tight leading-tight">Papillon Virton</h1>
 
-                <!-- Language switcher -->
                 <div class="flex items-center gap-1.5 shrink-0 pt-1">
                     <button @click="switchLang('fr')"
-                            :class="lang === 'fr' ? 'text-gh-accent border-gh-accent/50' : 'text-gh-muted border-gh-border hover:text-gh-text'"
+                            :class="lang === 'fr' ? 'text-accent border-accent/50' : 'text-muted border-border hover:text-text'"
                             class="lang-btn font-mono text-[10px] px-2 py-0.5 rounded border">
                         FR
                     </button>
                     <button @click="switchLang('en')"
-                            :class="lang === 'en' ? 'text-gh-accent border-gh-accent/50' : 'text-gh-muted border-gh-border hover:text-gh-text'"
+                            :class="lang === 'en' ? 'text-accent border-accent/50' : 'text-muted border-border hover:text-text'"
                             class="lang-btn font-mono text-[10px] px-2 py-0.5 rounded border">
                         EN
                     </button>
                     <button @click="switchLang('ru')"
-                            :class="lang === 'ru' ? 'text-gh-accent border-gh-accent/50' : 'text-gh-muted border-gh-border hover:text-gh-text'"
+                            :class="lang === 'ru' ? 'text-accent border-accent/50' : 'text-muted border-border hover:text-text'"
                             class="lang-btn font-mono text-[10px] px-2 py-0.5 rounded border">
                         RU
                     </button>
                 </div>
             </div>
 
-            <div class="h-px bg-gh-border mb-3"></div>
-            <div class="flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs text-gh-muted">
-                <a href="mailto:papillonvirton.pro@gmail.com" class="hover:text-gh-accent transition-colors">papillonvirton.pro@gmail.com</a>
+            <div class="h-px bg-border mb-3"></div>
+            <div class="flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs text-muted">
+                <a href="mailto:papillonvirton.pro@gmail.com" class="hover:text-accent transition-colors">papillonvirton.pro@gmail.com</a>
                 <span x-text="labels.location"></span>
                 <span x-text="age + ' ' + (labels.ageSuffix || 'ans')"></span>
             </div>
@@ -137,22 +133,19 @@
 
         <div class="lg:grid lg:grid-cols-2 lg:gap-x-10">
 
-        <!-- ABOUT / BIO -->
         <section class="mb-8 anim" id="s1">
-            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-gh-muted mb-3" x-text="labels.sectionAbout"></h2>
-            <p class="text-sm text-gh-muted leading-relaxed" x-text="bio"></p>
+            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-muted mb-3" x-text="labels.sectionAbout"></h2>
+            <p class="text-sm text-muted leading-relaxed" x-text="bio"></p>
         </section>
 
-        <!-- FORMATION + TECHNOLOGIES (même colonne en grand écran) -->
         <div>
 
-        <!-- FORMATION / EDUCATION -->
         <section class="mb-8 anim" id="s0">
-            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-gh-muted mb-3" x-text="labels.sectionFormation"></h2>
+            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-muted mb-3" x-text="labels.sectionFormation"></h2>
             <div class="space-y-3">
                 <template x-for="(f, i) in formation" :key="i">
                     <div class="flex flex-col sm:flex-row sm:gap-4 sm:items-start">
-                        <span class="font-mono text-[11px] text-gh-muted sm:w-24 sm:shrink-0 sm:pt-0.5 mb-1 sm:mb-0" x-text="f.date"></span>
+                        <span class="font-mono text-[11px] text-muted sm:w-24 sm:shrink-0 sm:pt-0.5 mb-1 sm:mb-0" x-text="f.date"></span>
                         <div class="flex-1">
                             <div class="flex items-center gap-2">
                                 <p class="font-medium text-sm flex-1" x-text="f.title"></p>
@@ -161,16 +154,15 @@
                                       :class="f.badgeCls"
                                       x-text="f.badge"></span>
                             </div>
-                            <p class="text-xs text-gh-muted mt-0.5" x-text="f.org"></p>
+                            <p class="text-xs text-muted mt-0.5" x-text="f.org"></p>
                         </div>
                     </div>
                 </template>
             </div>
         </section>
 
-        <!-- TECHNOLOGIES -->
-        <section class="mb-8 anim" id="st">
-            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-gh-muted mb-3">Technologies</h2>
+        <section class="mb-8 anim" id="s1">
+            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-muted mb-3">Technologies</h2>
             <div class="grid grid-flow-col auto-cols-fr gap-3">
                 <template x-for="tech in technologies" :key="tech.name">
                     <span class="tech-svg aspect-square"
@@ -181,32 +173,31 @@
             </div>
         </section>
 
-        </div><!-- /formation+technologies -->
+        </div>
 
-        <!-- EXPERIENCE -->
         <section class="mb-8 anim" id="s2">
-            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-gh-muted mb-3" x-text="labels.sectionExp"></h2>
-            <div class="space-y-px rounded-lg border border-gh-border overflow-hidden bg-gh-surface" x-ref="expList">
+            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-muted mb-3" x-text="labels.sectionExp"></h2>
+            <div class="space-y-px rounded-lg border border-border overflow-hidden bg-surface" x-ref="expList">
 
                 <template x-for="(e, i) in exps" :key="i">
-                    <div class="exp-row px-3.5 py-2.5 cursor-pointer border-b border-gh-border last:border-0"
+                    <div class="exp-row px-3.5 py-2.5 cursor-pointer border-b border-border last:border-0"
                          @click="open = open === i ? null : i">
                         <div class="flex flex-col sm:flex-row sm:items-start sm:gap-3.5">
-                            <span class="font-mono text-[11px] text-gh-muted sm:w-24 sm:shrink-0 sm:pt-0.5 mb-1.5 sm:mb-0" x-text="e.date"></span>
+                            <span class="font-mono text-[11px] text-muted sm:w-24 sm:shrink-0 sm:pt-0.5 mb-1.5 sm:mb-0" x-text="e.date"></span>
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center gap-2">
                                     <p class="font-medium text-sm flex-1" x-text="e.title"></p>
                                     <span class="font-mono text-[10px] px-1.5 py-px rounded-full shrink-0"
                                           :class="e.badgeCls"
                                           x-text="e.badge"></span>
-                                    <svg class="w-3.5 h-3.5 text-gh-muted shrink-0 transition-transform duration-200"
+                                    <svg class="w-3.5 h-3.5 text-muted shrink-0 transition-transform duration-200"
                                          :class="open === i && 'rotate-180'"
                                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                                     </svg>
                                 </div>
                                 <div x-show="open === i" x-collapse x-cloak>
-                                    <p class="text-xs text-gh-muted mt-1.5 leading-relaxed" x-text="e.desc"></p>
+                                    <p class="text-xs text-muted mt-1.5 leading-relaxed" x-text="e.desc"></p>
                                     <div x-show="e.tags && e.tags.length" class="flex flex-wrap gap-1.5 mt-2">
                                         <template x-for="tag in (e.tags || [])" :key="tag.t">
                                             <span class="px-1.5 py-px rounded text-[10px] font-mono border"
@@ -215,7 +206,7 @@
                                         </template>
                                     </div>
                                     <a x-show="e.url" :href="e.url" target="_blank" rel="noopener"
-                                       class="inline-flex items-center gap-1 text-[11px] text-gh-accent mt-2 hover:underline font-mono">
+                                       class="inline-flex items-center gap-1 text-[11px] text-accent mt-2 hover:underline font-mono">
                                         <span x-text="e.linkText || labels.learnMore"></span>
                                         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                                     </a>
@@ -228,17 +219,16 @@
             </div>
         </section>
 
-        <!-- PROJECTS -->
         <section class="mb-8 anim" id="s3">
-            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-gh-muted mb-3" x-text="labels.sectionProjects"></h2>
+            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-muted mb-3" x-text="labels.sectionProjects"></h2>
 
-            <a href="https://github.com/PowerPeps" target="_blank" class="gh-cta rounded-lg p-3.5 mb-3 flex items-center gap-3.5 group block" x-ref="projCta">
-                <svg class="w-7 h-7 text-gh-muted group-hover:text-gh-text shrink-0 transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            <a href="https://github.com/PowerPeps" target="_blank" class="cta rounded-lg p-3.5 mb-3 flex items-center gap-3.5 group block" x-ref="projCta">
+                <svg class="w-7 h-7 text-muted group-hover:text-text shrink-0 transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 <div class="flex-1 min-w-0">
-                    <p class="font-medium text-sm text-gh-text" x-text="labels.githubHandle"></p>
-                    <p class="text-[11px] text-gh-muted mt-px" x-text="labels.githubDesc"></p>
+                    <p class="font-medium text-sm text-text" x-text="labels.githubHandle"></p>
+                    <p class="text-[11px] text-muted mt-px" x-text="labels.githubDesc"></p>
                 </div>
-                <svg class="w-4 h-4 text-gh-muted group-hover:text-gh-accent group-hover:translate-x-0.5 shrink-0 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <svg class="w-4 h-4 text-muted group-hover:text-accent group-hover:translate-x-0.5 shrink-0 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
 
             <div class="relative">
@@ -246,24 +236,24 @@
                  x-ref="projScroll"
                  @scroll="projBottom = $el.scrollHeight - $el.scrollTop <= $el.clientHeight + 2">
                 <template x-for="(p, i) in projects" :key="i">
-                    <div class="proj-card border border-gh-border rounded-lg px-3.5 py-2.5 cursor-pointer bg-gh-surface"
+                    <div class="proj-card border border-border rounded-lg px-3.5 py-2.5 cursor-pointer bg-surface"
                          @click="projOpen = projOpen === i ? null : i">
                         <div class="flex items-center justify-between gap-2">
                             <div class="flex items-center gap-2 flex-wrap min-w-0">
-                                <p class="font-medium text-sm text-gh-accent" x-text="p.name"></p>
+                                <p class="font-medium text-sm text-accent" x-text="p.name"></p>
                                 <span class="font-mono text-[10px] px-1.5 py-px rounded-full shrink-0"
                                       :class="p.badgeCls"
                                       x-text="p.badge"></span>
                             </div>
-                            <svg class="w-3.5 h-3.5 text-gh-muted shrink-0 transition-transform duration-200"
+                            <svg class="w-3.5 h-3.5 text-muted shrink-0 transition-transform duration-200"
                                  :class="projOpen === i && 'rotate-180'"
                                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </div>
-                        <p class="text-[11px] text-gh-muted mt-0.5" x-text="p.short"></p>
+                        <p class="text-[11px] text-muted mt-0.5" x-text="p.short"></p>
                         <div x-show="projOpen === i" x-collapse x-cloak>
-                            <p class="text-xs text-gh-muted mt-2 leading-relaxed" x-text="p.desc"></p>
+                            <p class="text-xs text-muted mt-2 leading-relaxed" x-text="p.desc"></p>
                             <div x-show="p.tags && p.tags.length" class="flex flex-wrap gap-1.5 mt-2">
                                 <template x-for="tag in (p.tags || [])" :key="tag.t">
                                     <span class="px-1.5 py-px rounded text-[10px] font-mono border"
@@ -272,7 +262,7 @@
                                 </template>
                             </div>
                             <a x-show="p.url" :href="p.url" target="_blank" rel="noopener"
-                               class="inline-flex items-center gap-1 text-[11px] text-gh-accent mt-2 hover:underline font-mono">
+                               class="inline-flex items-center gap-1 text-[11px] text-accent mt-2 hover:underline font-mono">
                                 <span x-text="labels.viewOnGithub"></span>
                                 <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                             </a>
@@ -283,21 +273,20 @@
             <div class="absolute bottom-0 left-0 right-0 h-16 pointer-events-none transition-opacity duration-300 flex items-end justify-center pb-1.5"
                  :class="projBottom ? 'opacity-0' : 'opacity-100'"
                  style="background: linear-gradient(to bottom, transparent, #0d1117)">
-                <svg class="scroll-hint-arrow w-4 h-4 text-gh-muted/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="scroll-hint-arrow w-4 h-4 text-muted/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                 </svg>
             </div>
-            </div><!-- /relative proj -->
+            </div>
         </section>
 
-        </div><!-- /grid -->
+        </div>
 
-        <!-- PASSIONS / INTERESTS -->
         <section class="mb-8 anim" id="s4">
-            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-gh-muted mb-3" x-text="labels.sectionPassions"></h2>
+            <h2 class="font-mono text-[11px] tracking-[0.2em] uppercase text-muted mb-3" x-text="labels.sectionPassions"></h2>
             <div class="flex flex-wrap gap-1.5">
                 <template x-for="p in passions" :key="p.label">
-                    <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs border border-gh-border text-gh-muted">
+                    <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs border border-border text-muted">
                         <i :data-lucide="p.icon"></i>
                         <span x-text="p.label"></span>
                     </span>
@@ -305,8 +294,8 @@
             </div>
         </section>
 
-        <div class="h-px bg-gh-border anim" id="s5"></div>
-        <p class="font-mono text-[10px] text-gh-muted/40 mt-2.5 text-center anim" id="s6" x-text="labels.location"></p>
+        <div class="h-px bg-border anim" id="s5"></div>
+        <p class="font-mono text-[10px] text-muted/40 mt-2.5 text-center anim" id="s6" x-text="labels.location"></p>
 
     </div>
 
@@ -357,8 +346,6 @@
                         const ctaEl  = this.$refs.projCta;
                         const projEl = this.$refs.projScroll;
                         if (expEl && ctaEl && projEl) {
-                            // scroll height = expList height - CTA height - CTA margin-bottom (mb-3 = 12px)
-                            // → les deux sections finissent exactement à la même hauteur
                             const h = expEl.offsetHeight - ctaEl.offsetHeight - 12;
                             projEl.style.maxHeight = Math.max(h, 80) + 'px';
                         }
@@ -380,7 +367,7 @@
                     tl.to('#h1', { opacity: 1, y: 0 }, 0.10)
                       .to('#s1', { opacity: 1, y: 0 }, 0.18)
                       .to('#s0', { opacity: 1, y: 0 }, 0.26)
-                      .to('#st', { opacity: 1, y: 0 }, 0.32)
+                      .to('#s1', { opacity: 1, y: 0 }, 0.32)
                       .to('#s2', { opacity: 1, y: 0 }, 0.38)
                       .to('#s3', { opacity: 1, y: 0 }, 0.46)
                       .to('#s4', { opacity: 1, y: 0 }, 0.54)
