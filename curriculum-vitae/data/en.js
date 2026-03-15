@@ -6,6 +6,7 @@ window.cvLangData = {
         sectionFormation:  'Education',
         sectionExp:        'Experience',
         sectionProjects:   'Projects',
+        sectionConcepts:   'Concepts',
         sectionPassions:   'Interests',
         githubHandle:      'PowerPeps',
         githubDesc:        'My work, from low-level to full-stack.',
@@ -13,9 +14,10 @@ window.cvLangData = {
         learnMore:         'Learn more',
         location:          'Corsica',
         ageSuffix:         'y/o',
+        downloadPdf:       'Download PDF',
     },
 
-    bio: 'Studying for a Bachelor\'s in Engineering Sciences, I\'ve been immersed in computers and electronics since the age when most people play with Legos. Self-taught above all, I build, I take apart, I understand ; whether it\'s writing a compiler, wiring an electrical installation, or designing an embedded system. Convinced that knowledge should flow freely, I work open-source as much as possible and seek demanding environments where I can get my hands dirty ; in the literal sense as much as the figurative.',
+    bio: 'Studying for a Bachelor\'s in Engineering Sciences, with an interest in computers and electronics from an early age. Self-taught experience in exploring and understanding technical systems, through experimentation and disassembling devices to analyze how they work.\n\nDriven by personal experimentation ranging from hardware projects controlled by microcontrollers or single-board computers (Arduino, Raspberry Pi) to learning and using several programming languages (PHP, JavaScript, MySQL, Python, C#, C++), with a particular interest in the interaction between hardware and software and the design of technical systems.\n\nHaving served as class representative, student representative on the school board, boarding student representative, and member of the student council provided opportunities to develop skills in representing a group, structuring information, and coordinating exchanges between students and institutions.',
 
     formation: [
         {
@@ -37,17 +39,17 @@ window.cvLangData = {
     exps: [
         {
             date:     '2024',
-            title:    'Web & Data Dev — QualitairCorse (AASQA)',
+            title:    'Developer/Analyst: Air Quality Data — QualitairCorse',
             badge:    'Contract',
             badgeCls: 'bg-accent/15 text-accent border border-accent/25',
-            desc:     'Design and development of a web tool for visualizing and exporting air quality measurement results. Interactive map interface (lightweight QGIS for the web) enabling display, filtering, and export of geo-spatialized data.',
+            desc:     '• Development of a web tool for visualizing and exporting air quality measurement results, featuring an interactive map interface with dynamic display, multi-criteria filtering, and geospatial data export.\n• Management of radon measurement campaign results: processing and validation of sensor data, statistical and temporal analyses, concentration modeling, and production of maps and exposure indicators.\n• Design and calibration of geostatistical models (experimental variogram analysis, theoretical model fitting, ordinary kriging, cross-validation) for predictive spatial modeling of radon concentrations.',
             tags:     [{t:'Laravel',c:'border-red/30 text-red'},{t:'Livewire',c:'border-orange/30 text-orange'},{t:'GIS / Carto',c:'border-green/30 text-green'}],
             url:      'https://qualitair.corsica/',
             linkText: 'QualitairCorse',
         },
         {
             date:     '2019',
-            title:    'Fablab Internship — Arize Leze Coworking',
+            title:    'Introduction to Digital Fabrication Machines — Fablab Arize Leze',
             badge:    'internship',
             badgeCls: 'bg-cyan/15 text-cyan border border-cyan/25',
             desc:     'Internship at a business hotel and Fablab. Training and hands-on use of digital fabrication tools: CNC router, FDM 3D printer, vinyl cutter, and laser cutter/engraver. Learned associated CAD software and manufacturing workflows.',
@@ -57,7 +59,7 @@ window.cvLangData = {
         },
         {
             date:     '2019 — 2022',
-            title:    'Ressourcerie Zero Neuf',
+            title:    'Computer Equipment Repair and Refurbishment — Ressourcerie Zero Neuf',
             badge:    'volunteer',
             badgeCls: 'bg-green/15 text-green border border-green/25',
             desc:     'Regular volunteering in Les Bordes-sur-Arize. Repair and refurbishment of household appliances, computer equipment, and more.',
@@ -67,7 +69,7 @@ window.cvLangData = {
         },
         {
             date:     '2017',
-            title:    'Wood Turning Internship',
+            title:    'Introduction to Wood Machining and Craft — Atelier Renard',
             badge:    'internship',
             badgeCls: 'bg-cyan/15 text-cyan border border-cyan/25',
             desc:     'Introduction to wood turning. Chuck and between-centres techniques.',
@@ -77,7 +79,7 @@ window.cvLangData = {
         },
         {
             date:     'Summer 2015',
-            title:    'Housing Rehabilitation',
+            title:    'Electrical Compliance Work — La Bouguetoise',
             badge:    'volunteer',
             badgeCls: 'bg-green/15 text-green border border-green/25',
             desc:     'Rehabilitation of a community dwelling in Bouguet (09290). Electrical compliance work and alternative masonry (earth-straw eco-construction techniques).',
@@ -87,15 +89,15 @@ window.cvLangData = {
         },
         {
             date:     '2012 — 2021',
-            title:    'Private Tutoring — Electronics & CS',
+            title:    'Programming and Electronics Training — Private Tutoring',
             badge:    'training',
             badgeCls: 'bg-orange/15 text-orange border border-orange/25',
-            desc:     'Private tutoring in electronics and computer science over two periods (2012-2015, then 2019-2021). Programming, electronic circuits, microcontrollers, and hardware architecture fundamentals.',
+            desc:     '• Design and prototyping of electronic circuits.\n• Embedded software development.\n• Component soldering and prototype assembly.\n• Low-level programming on microcontrollers (C++/Arduino).\n• Hardware-software integration and electronic system debugging.',
             tags:     [{t:'Electronics',c:'border-border text-muted'},{t:'Computer Science',c:'border-border text-muted'}],
         },
         {
             date:     '2011 — 2017',
-            title:    'Lighting & Sound Engineer',
+            title:    'Lead Sound and Lighting Technician — Festival Terre-de-Couleurs',
             badge:    'volunteer',
             badgeCls: 'bg-green/15 text-green border border-green/25',
             desc:     'Sound and lighting engineering for the band "Les Tzigales" and various musical projects and jam sessions, including the Terre-De-Couleurs festival.',
@@ -151,6 +153,14 @@ window.cvLangData = {
             tags:     [{t:'Laravel',c:'border-red/30 text-red'},{t:'Transformers',c:'border-purple/30 text-purple'},{t:'LLM',c:'border-purple/30 text-purple'}],
             url:      null,
         },
+    ],
+
+    concepts: [
+        { cat: 'Paradigms',   lc: 'text-accent',  tc: 'bg-accent/10 text-accent',   items: ['OOP', 'Functional', 'Event-driven'] },
+        { cat: 'Algorithms',  lc: 'text-green',   tc: 'bg-green/10 text-green',     items: ['Data Structures', 'Complexity', 'Compilation'] },
+        { cat: 'Systems',     lc: 'text-orange',  tc: 'bg-orange/10 text-orange',   items: ['Embedded', 'Hardware Arch.', 'Low-level'] },
+        { cat: 'Data',        lc: 'text-purple',  tc: 'bg-purple/10 text-purple',   items: ['SQL / Databases', 'Geostatistics', 'GIS / Mapping'] },
+        { cat: 'Fabrication', lc: 'text-red',     tc: 'bg-red/10 text-red',         items: ['DAW', 'CAD / CAM'] },
     ],
 
     passions: [

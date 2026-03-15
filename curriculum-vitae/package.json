@@ -1,0 +1,12 @@
+{
+    "name": "cv-pdf-generator",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Génère les CVs en PDF (FR / EN / RU) depuis les données JS",
+    "scripts": {
+        "pdf": "node generate-pdfs.js"
+    },
+    "dependencies": {
+        "puppeteer": "^24.37.5"
+    }
+}

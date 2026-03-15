@@ -6,6 +6,7 @@ window.cvLangData = {
         sectionFormation:  'Formation',
         sectionExp:        'Expériences',
         sectionProjects:   'Projets',
+        sectionConcepts:   'Concepts',
         sectionPassions:   'Passions',
         githubHandle:      'PowerPeps',
         githubDesc:        'Mon travail, du bas niveau au full-stack.',
@@ -13,9 +14,10 @@ window.cvLangData = {
         learnMore:         'En savoir plus',
         location:          'Corse',
         ageSuffix:         'ans',
+        downloadPdf:       'Télécharger le PDF',
     },
 
-    bio: 'Étudiant en Licence Sciences pour l\'Ingénieur, je baigne dans l\'informatique et l\'électronique depuis l\'âge où la plupart des gens jouent aux Legos. Autodidacte avant tout, je construis, je démonte, je comprends ; qu\'il s\'agisse d\'écrire un compilateur, de câbler une installation électrique ou de concevoir un système embarqué. Convaincu que le savoir doit circuler librement, je travaille en open-source autant que possible et cherche des environnements exigeants où mettre les mains dans le cambouis ; au sens propre comme au figuré.',
+    bio: 'Étudiant en Licence Sciences pour l\'Ingénieur, avec un intérêt pour l\'informatique et l\'électronique depuis très jeune. Expérience autodidacte dans l\'exploration et la compréhension de systèmes techniques, passant par l\'expérimentation et le démontage d\'appareils afin d\'en analyser le fonctionnement.\n\nMue d\'expérimentations personnelles allant de projets matériels pilotés par microcontrôleurs ou micro-ordinateurs (Arduino, Raspberry Pi) à l\'apprentissage et à l\'utilisation de plusieurs langages de programmation (PHP, JavaScript, MySQL, Python, C#, C++), avec un intérêt particulier pour l\'interaction entre matériel et logiciel et la conception de systèmes techniques.\n\nLe fait d\'avoir été délégué de classe, délégué au conseil d\'administration du lycée, représentant des internes et membre du conseil de la vie lycéenne a permis de développer des capacités à représenter un collectif, à structurer l\'information et à coordonner des échanges entre étudiants et institutions.',
 
     formation: [
         {
@@ -37,17 +39,17 @@ window.cvLangData = {
     exps: [
         {
             date:     '2024',
-            title:    'Dev. Web & data — QualitairCorse (AASQA)',
+            title:    'Développeur/Analyste : Données de qualité de l\'air - QualitairCorse',
             badge:    'CDD',
             badgeCls: 'bg-accent/15 text-accent border border-accent/25',
-            desc:     'Conception et développement d\'un outil web de visualisation et d\'export des résultats de mesure de qualité de l\'air. Interface cartographique interactive type QGIS allégé pour le web, permettant l\'affichage, le filtrage et l\'export des données géospatialisées.',
+            desc:     '• Réalisation d\'un outil web de visualisation et d\'export des résultats de mesures de qualité de l\'air, intégrant une interface cartographique interactive permettant l\'affichage dynamique, le filtrage multicritère et l\'export de données géospatialisées.\n• Gestion des résultats d\'une campagne de mesure du radon : traitement et validation des données issues de capteurs, analyses statistiques et temporelles, modélisation des concentrations et production de cartographies et d\'indicateurs d\'exposition.\n• Conception et calibration de modèles géostatistiques (analyse de variogramme expérimental, ajustement de modèle théorique, krigeage ordinaire, validation croisée) pour la spatialisation prédictive des concentrations en radon.',
             tags:     [{t:'Laravel',c:'border-red/30 text-red'},{t:'Livewire',c:'border-orange/30 text-orange'},{t:'SIG / Carto',c:'border-green/30 text-green'}],
             url:      'https://qualitair.corsica/',
             linkText: 'QualitairCorse',
         },
         {
             date:     '2019',
-            title:    'Stage Fablab — Arize Leze Coworking',
+            title:    'Initiation aux machines de fabrication numérique - Fablab Arize Leze',
             badge:    'stage',
             badgeCls: 'bg-cyan/15 text-cyan border border-cyan/25',
             desc:     'Stage à l\'hôtel d\'entreprises et Fablab. Formation et prise en main des outils de fabrication numérique : fraiseuse CNC, imprimante 3D (FDM), découpeuse vinyle et découpeur/graveur laser. Apprentissage des logiciels de CAO associés et des workflows de fabrication.',
@@ -57,7 +59,7 @@ window.cvLangData = {
         },
         {
             date:     '2019 — 2022',
-            title:    'Ressourcerie Zero Neuf',
+            title:    'Réparation et remise en état de matériel informatique - Ressourcerie Zero Neuf',
             badge:    'bénévole',
             badgeCls: 'bg-green/15 text-green border border-green/25',
             desc:     'Bénévolat régulier aux Bordes-sur-Arize. Réparation et remise en état d\'électroménager, de matériel informatique...',
@@ -67,7 +69,7 @@ window.cvLangData = {
         },
         {
             date:     '2017',
-            title:    'Stage tourneur sur bois',
+            title:    'Initiation à l\'usinage et l\'artisanat sur bois - Atelier Renard',
             badge:    'stage',
             badgeCls: 'bg-cyan/15 text-cyan border border-cyan/25',
             desc:     'Apprentissage du tournage sur bois. Technique sur mandrin et entre-pointes.',
@@ -77,7 +79,7 @@ window.cvLangData = {
         },
         {
             date:     'Été 2015',
-            title:    'Réhabilitation d\'habitation',
+            title:    'Travaux de remise aux normes électriques - La Bouguetoise',
             badge:    'bénévole',
             badgeCls: 'bg-green/15 text-green border border-green/25',
             desc:     'Réhabilitation d\'une habitation communautaire à Bouguet (09290). Travaux de remise aux normes électriques et maçonnerie alternative (techniques éco-construction terre-paille).',
@@ -87,15 +89,15 @@ window.cvLangData = {
         },
         {
             date:     '2012 — 2021',
-            title:    'Cours particuliers électronique & info',
+            title:    'Formation en programmation et électronique - Cours particuliers',
             badge:    'formation',
             badgeCls: 'bg-orange/15 text-orange border border-orange/25',
-            desc:     'Suivi de cours particuliers d\'électronique et informatique sur deux périodes (2012-2015, puis 2019-2021). Programmation, circuits électroniques, microcontrôleurs, bases de l\'architecture matérielle.',
+            desc:     '• Conception et prototypage de circuits électroniques.\n• Développement logiciel embarqué.\n• Soudure de composants et assemblage de prototypes.\n• Programmation bas niveau sur microcontrôleurs (C++/Arduino).\n• Intégration matériel-logiciel et mise au point de systèmes électroniques.',
             tags:     [{t:'Électronique',c:'border-border text-muted'},{t:'Informatique',c:'border-border text-muted'}],
         },
         {
             date:     '2011 — 2017',
-            title:    'Régisseur lumière & son',
+            title:    'Technicien principal son et lumière - Festival Terre-de-Couleurs',
             badge:    'bénévole',
             badgeCls: 'bg-green/15 text-green border border-green/25',
             desc:     'Régie son et lumière pour le groupe "Les Tzigales", ainsi que pour les différents projets musicaux et bœufs. Notamment au festival Terre-De-Couleurs.',
@@ -151,6 +153,14 @@ window.cvLangData = {
             tags:     [{t:'Laravel',c:'border-red/30 text-red'},{t:'Transformers',c:'border-purple/30 text-purple'},{t:'LLM',c:'border-purple/30 text-purple'}],
             url:      null,
         },
+    ],
+
+    concepts: [
+        { cat: 'Paradigmes',    lc: 'text-accent',  tc: 'bg-accent/10 text-accent',   items: ['POO', 'Fonctionnel', 'Événementiel'] },
+        { cat: 'Algorithmique', lc: 'text-green',   tc: 'bg-green/10 text-green',     items: ['Struct. données', 'Complexité', 'Compilation'] },
+        { cat: 'Systèmes',      lc: 'text-orange',  tc: 'bg-orange/10 text-orange',   items: ['Embarqué', 'Arch. matérielle', 'Bas niveau'] },
+        { cat: 'Données',       lc: 'text-purple',  tc: 'bg-purple/10 text-purple',   items: ['SQL / BDD', 'Géostatistiques', 'SIG / Carto'] },
+        { cat: 'Fabrication',   lc: 'text-red',     tc: 'bg-red/10 text-red',         items: ['MAO', 'CAO / DAO'] },
     ],
 
     passions: [
