@@ -89,8 +89,18 @@ function esc(str) {
 
 // ── HTML template ─────────────────────────────────────────────────────────────
 
+function conceptColor(lc) {
+    if (!lc) return { cat: '#1e40af', pill: '#dbeafe', pillText: '#1e40af', pillBorder: '#bfdbfe' };
+    if (lc.includes('accent')) return { cat: '#1d4ed8', pill: '#dbeafe', pillText: '#1e40af',  pillBorder: '#bfdbfe' };
+    if (lc.includes('green'))  return { cat: '#15803d', pill: '#dcfce7', pillText: '#15803d',  pillBorder: '#bbf7d0' };
+    if (lc.includes('orange')) return { cat: '#c2410c', pill: '#ffedd5', pillText: '#c2410c',  pillBorder: '#fed7aa' };
+    if (lc.includes('purple')) return { cat: '#6d28d9', pill: '#ede9fe', pillText: '#6d28d9',  pillBorder: '#ddd6fe' };
+    if (lc.includes('red'))    return { cat: '#991b1b', pill: '#fee2e2', pillText: '#991b1b',  pillBorder: '#fecaca' };
+    return { cat: '#1e40af', pill: '#dbeafe', pillText: '#1e40af', pillBorder: '#bfdbfe' };
+}
+
 function generateHtml(data) {
-    const { labels, bio, formation, exps, projects, passions, technologies, age, lang } = data;
+    const { labels, bio, formation, exps, projects, passions, technologies, concepts, age, lang } = data;
 
     // ── Formation (sidebar) ─────────────────────────────────────────────────
     const formHtml = formation.map(f => `
@@ -107,6 +117,18 @@ function generateHtml(data) {
     const techHtml = technologies.map(t => `
         <span class="tech-icon" title="${esc(t.name)}" style="color:${t.color}">${t.svg}</span>
     `).join('');
+
+    // ── Concepts (sidebar) ──────────────────────────────────────────────────
+    const conceptsHtml = (concepts ?? []).map(c => {
+        const col   = conceptColor(c.lc);
+        const pills = c.items.map(i =>
+            `<span class="concept-pill" style="background:${col.pill};color:${col.pillText};border-color:${col.pillBorder}">${esc(i)}</span>`
+        ).join('');
+        return `<div class="concept-row">
+            <span class="concept-cat" style="color:${col.cat}">${esc(c.cat)}</span>
+            <div class="concept-pills">${pills}</div>
+        </div>`;
+    }).join('');
 
     // ── Passions (sidebar) ──────────────────────────────────────────────────
     const passHtml = passions.map(p =>
@@ -292,6 +314,34 @@ body {
     display: block;
 }
 
+/* ── Concepts ──────────────────────────────────────── */
+.concept-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1mm;
+    margin-bottom: 2.2mm;
+}
+.concept-row:last-child { margin-bottom: 0; }
+.concept-cat {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 5.4pt;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.concept-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1mm;
+}
+.concept-pill {
+    font-size: 5.8pt;
+    padding: 0.3mm 2mm;
+    border-radius: 1.5mm;
+    border: 0.3mm solid;
+    line-height: 1.4;
+}
+
 /* ── Passions ──────────────────────────────────────── */
 .passion-list {
     display: flex;
@@ -444,6 +494,11 @@ body {
         <div>
             <div class="sec-title">Technologies</div>
             <div class="tech-grid">${techHtml}</div>
+        </div>
+
+        <div>
+            <div class="sec-title">${esc(labels.sectionConcepts)}</div>
+            ${conceptsHtml}
         </div>
 
         <div>
